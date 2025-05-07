@@ -12,10 +12,12 @@ public boolean isBonus()
 public void makeBonus(){
     bonus = true;
 }
-public void play()
-{ 
-    levelOne.setpoints((int) (Math.random()*1000));
-}
+public void play() {
+    System.out.println("Enter the number of points.");
+    Scanner s = new Scanner(System.in);
+    levelOne.setPoints(s.nextInt());
+    levelOne.reachGoal();
+ }  
 
 public int getScore(){
     int score = 0;
@@ -32,10 +34,16 @@ public int getScore(){
     return score;
 }
 
-public int playManyTimes(int num)
-{
-    return 0;
-}
+public int playManyTimes(int num)  {
+    int max = 0;
+    while (num > 0) {
+        play();
+        int score = getScore();
+        if (score > max) max = score;
+        num--;
+    }
+    return max;
+} 
 
 public Level getLevel(int i){
     if(i == 1) return levelOne;

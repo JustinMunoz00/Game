@@ -40,7 +40,8 @@ public class Main {
         System.out.println(four.getScore());
 
 
-        
+        Game five = new Game();
+        System.out.println(five.playManyTimes(4));
 
     }
 }
